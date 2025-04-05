@@ -11,6 +11,8 @@ public class VideoHandler : MonoBehaviour
    public Button button;
    public Sprite startSprite;
    public Sprite stopSprite;
+   public GameObject previewHud;
+   public GameObject UIElements;
    public GameObject interactionHud;
    public GameObject pauseButton; // Same as var button, but as a GameObject can't access the sprite and as Button can't toggle SetActive()
        
@@ -18,7 +20,26 @@ public class VideoHandler : MonoBehaviour
     void Start()
     {
         player = GetComponent<VideoPlayer>();
+        
+        player.Prepare();
+        player.prepareCompleted += OnVideoPrepared;
+        
         player.loopPointReached += VideoEnded;
+    }
+    
+    // Mostrar primer frame
+    void OnVideoPrepared(VideoPlayer vp)
+    {
+        vp.Play();
+        vp.Pause();
+    }
+    
+    // Iniciar video
+    public void StartVideo()
+    {
+        player.Play();
+        previewHud.SetActive(false);
+        UIElements.SetActive(true);
     }
     
     // Play/Pause

@@ -12,6 +12,25 @@ public class APIHandler : MonoBehaviour
     public string testName;
     public string testEmail;
     public string testPassword;
+    public InputField nameInput;
+    public InputField mailInput;
+    public InputField passwordInput;
+    public GameObject errorMsg;
+
+    public void SendLoginData()
+    {
+        string mail = mailInput.text;
+        string password = passwordInput.text;
+        StartCoroutine(Login(mail, password));
+    }
+
+    public void SendRegisterData()
+    {
+        string mail = mailInput.text;
+        string password = passwordInput.text;
+        string name = nameInput.text;
+        StartCoroutine(Register(mail, password, name));
+    }
     
     [System.Serializable]
     public class LoginData
@@ -59,7 +78,7 @@ public class APIHandler : MonoBehaviour
         var loginData = new LoginData(email, password);
         string json = JsonUtility.ToJson(loginData);
 
-        UnityWebRequest request = new UnityWebRequest("http://localhost:8080/api/login", "POST");
+        UnityWebRequest request = new UnityWebRequest("http://virtx-api-production.up.railway.app/api/login", "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
@@ -70,10 +89,12 @@ public class APIHandler : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Login success: " + request.downloadHandler.text);
+            ButtonsBehav.GoToCatMenu();
         }
         else
         {
             Debug.LogError("Login failed: " + request.error);
+            errorMsg.SetActive(true);
         }
     }
     
@@ -83,7 +104,7 @@ public class APIHandler : MonoBehaviour
         var registerData = new RegisterData(email, password, name);
         string json = JsonUtility.ToJson(registerData);
 
-        UnityWebRequest request = new UnityWebRequest("http://localhost:8080/api/register", "POST");
+        UnityWebRequest request = new UnityWebRequest("http://virtx-api-production.up.railway.app/api/login", "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
@@ -93,11 +114,13 @@ public class APIHandler : MonoBehaviour
 
         if (request.result == UnityWebRequest.Result.Success)
         {
-            Debug.Log("Register success: " + request.downloadHandler.text);
+            Debug.Log("Register success: " + request.downloadHandler.text); 
+            ButtonsBehav.GoToCatMenu();
         }
         else
         {
             Debug.LogError("Register failed: " + request.error);
+            errorMsg.SetActive(true);
         }
     }
 }

@@ -29,7 +29,7 @@ public class ButtonsBehav : MonoBehaviour
     }
 
     // Ir al menú de categorías
-    public void GoToCatMenu()
+    public static void GoToCatMenu()
     {
         SceneManager.LoadScene(sceneBuildIndex:2);
     }

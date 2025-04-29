@@ -17,13 +17,13 @@ public class ButtonsBehav : MonoBehaviour
     // 8 - SJU01
     
     // Ir al menú principal
-    public void GoToMainMenu()
+    public static void GoToMainMenu()
     {
         SceneManager.LoadScene(sceneBuildIndex:0);
     }
 
     // Ir al inicio del recorrido de la UV
-    public void GoToUV01()
+    public static void GoToUV01()
     {
         SceneManager.LoadScene(sceneBuildIndex:1);
     }
@@ -35,55 +35,43 @@ public class ButtonsBehav : MonoBehaviour
     }
 
     // Ir al menú de la categoría "Organización"
-    public void GoToOrgMenu()
+    public static void GoToOrgMenu()
     {
         SceneManager.LoadScene(sceneBuildIndex:3);
     }
     
     // Ir al login
-    public void GoToLogin()
+    public static void GoToLogin()
     {
         SceneManager.LoadScene(sceneBuildIndex:4);
     }
     
     // Ir a UV02
-    public void GoToUV02()
+    public static void GoToUV02()
     {
         SceneManager.LoadScene(sceneBuildIndex:5);
     }
     
     // Ir a UV03
-    public void GoToUV03()
+    public static void GoToUV03()
     {
         SceneManager.LoadScene(sceneBuildIndex:6);
     }
     
     // Ir al menú cultural
-    public void GoToCultMenu()
+    public static void GoToCultMenu()
     {
         SceneManager.LoadScene(sceneBuildIndex:7);
     }
     
     // Ir a SJU01
-    public void GoToSJU01()
+    public static void GoToSJU01()
     {
         SceneManager.LoadScene(sceneBuildIndex:8);
     }
-
-    // Ir a menú de educación
-    public void GoToEdMenu()
-    {
-        SceneManager.LoadScene(sceneBuildIndex:9);
-    }
-    
-    // Ir a ED01
-    public void GoToED01()
-    {
-        SceneManager.LoadScene(sceneBuildIndex:10);
-    }
     
     // Salir del programa
-    public void ExitProgram()
+    public static void ExitProgram()
     {
         Application.Quit();
     }

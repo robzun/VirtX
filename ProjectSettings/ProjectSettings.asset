@@ -143,8 +143,6 @@ PlayerSettings:
   bundleVersion: 0.1
   preloadedAssets:
   - {fileID: 11400000, guid: 896c680a9d5e170488754809c157b1d3, type: 2}
-  - {fileID: -3397088297250834701, guid: 6026e52cde826d142a093a43e6fc4f9b, type: 2}
-  - {fileID: 11400000, guid: fabe00b690e4066439c80348c852ed97, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -184,7 +182,7 @@ PlayerSettings:
   ForceInternetPermission: 0
   ForceSDCardPermission: 0
   CreateWallpaper: 0
-  APKExpansionFiles: 0
+  APKExpansionFiles: 1
   keepLoadedShadersAlive: 0
   StripUnusedMeshComponents: 1
   strictShaderVariantMatching: 0

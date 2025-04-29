@@ -104,7 +104,7 @@ public class APIHandler : MonoBehaviour
         var registerData = new RegisterData(email, password, name);
         string json = JsonUtility.ToJson(registerData);
 
-        UnityWebRequest request = new UnityWebRequest("http://virtx-api-production.up.railway.app/api/login", "POST");
+        UnityWebRequest request = new UnityWebRequest("http://virtx-api-production.up.railway.app/api/register", "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();

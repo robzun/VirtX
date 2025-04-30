@@ -32,10 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/scnSJU01.unity
     guid: f4e2e207f74689c408656d53afd1bf74
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scnEdMenu.unity
     guid: 199f2f9e41c7b864abaffbc4c60b62b8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scnED01.unity
     guid: 9f30fdb5aa60a5a45b2881fbecb1e0bc
   m_configObjects:

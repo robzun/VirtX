@@ -78,7 +78,7 @@ public class APIHandler : MonoBehaviour
         var loginData = new LoginData(email, password);
         string json = JsonUtility.ToJson(loginData);
 
-        UnityWebRequest request = new UnityWebRequest("http://virtx-api-production.up.railway.app/api/login", "POST");
+        UnityWebRequest request = new UnityWebRequest("http://localhost:8080/api/login", "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();

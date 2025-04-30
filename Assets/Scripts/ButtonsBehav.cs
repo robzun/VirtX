@@ -1,78 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ButtonsBehav : MonoBehaviour
 {
-    // Orden de las escenas
+    public static ISceneLoader sceneLoader = new UnitySceneLoader();
+
     // 0 - Main menu 
+    public static void GoToMainMenu() => sceneLoader.LoadScene(0);
     // 1 - UV01
+    public static void GoToUV01() => sceneLoader.LoadScene(1);
     // 2 - CatMenu
+    public static void GoToCatMenu() => sceneLoader.LoadScene(2);
     // 3 - OrgMenu
+    public static void GoToOrgMenu() => sceneLoader.LoadScene(3);
     // 4 - Login
+    public static void GoToLogin() => sceneLoader.LoadScene(4);
     // 5 - UV02
+    public static void GoToUV02() => sceneLoader.LoadScene(5);
     // 6 - UV03
+    public static void GoToUV03() => sceneLoader.LoadScene(6);
     // 7 - CultMenu
+    public static void GoToCultMenu() => sceneLoader.LoadScene(7);
     // 8 - SJU01
+    public static void GoToSJU01() => sceneLoader.LoadScene(8);
     
-    // Ir al menú principal
-    public static void GoToMainMenu()
-    {
-        SceneManager.LoadScene(sceneBuildIndex:0);
-    }
-
-    // Ir al inicio del recorrido de la UV
-    public static void GoToUV01()
-    {
-        SceneManager.LoadScene(sceneBuildIndex:1);
-    }
-
-    // Ir al menú de categorías
-    public static void GoToCatMenu()
-    {
-        SceneManager.LoadScene(sceneBuildIndex:2);
-    }
-
-    // Ir al menú de la categoría "Organización"
-    public static void GoToOrgMenu()
-    {
-        SceneManager.LoadScene(sceneBuildIndex:3);
-    }
-    
-    // Ir al login
-    public static void GoToLogin()
-    {
-        SceneManager.LoadScene(sceneBuildIndex:4);
-    }
-    
-    // Ir a UV02
-    public static void GoToUV02()
-    {
-        SceneManager.LoadScene(sceneBuildIndex:5);
-    }
-    
-    // Ir a UV03
-    public static void GoToUV03()
-    {
-        SceneManager.LoadScene(sceneBuildIndex:6);
-    }
-    
-    // Ir al menú cultural
-    public static void GoToCultMenu()
-    {
-        SceneManager.LoadScene(sceneBuildIndex:7);
-    }
-    
-    // Ir a SJU01
-    public static void GoToSJU01()
-    {
-        SceneManager.LoadScene(sceneBuildIndex:8);
-    }
-    
-    // Salir del programa
-    public static void ExitProgram()
-    {
-        Application.Quit();
-    }
+    // Exit app
+    public static void ExitProgram() => sceneLoader.Quit();
 }

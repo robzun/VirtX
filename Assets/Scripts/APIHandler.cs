@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -31,7 +30,7 @@ public class APIHandler : MonoBehaviour
         string name = nameInput.text;
         StartCoroutine(Register(mail, password, name));
     }
-    
+
     [System.Serializable]
     public class LoginData
     {
@@ -44,7 +43,7 @@ public class APIHandler : MonoBehaviour
             this.password = password;
         }
     }
-    
+
     [System.Serializable]
     public class RegisterData
     {
@@ -59,7 +58,7 @@ public class APIHandler : MonoBehaviour
             this.name = name;
         }
     }
-    
+
     [ContextMenu("Test Login")]
     public void TestLogin()
     {
@@ -71,7 +70,7 @@ public class APIHandler : MonoBehaviour
     {
         StartCoroutine(Register(testEmail, testPassword, testName));
     }
-    
+
     // Post login
     IEnumerator Login(string email, string password)
     {
@@ -97,14 +96,15 @@ public class APIHandler : MonoBehaviour
             errorMsg.SetActive(true);
         }
     }
-    
+
     // Post Register
     IEnumerator Register(string email, string password, string name)
     {
         var registerData = new RegisterData(email, password, name);
         string json = JsonUtility.ToJson(registerData);
 
-        UnityWebRequest request = new UnityWebRequest("http://virtx-api-production.up.railway.app/api/register", "POST");
+        UnityWebRequest request =
+            new UnityWebRequest("http://virtx-api-production.up.railway.app/api/register", "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
@@ -114,7 +114,7 @@ public class APIHandler : MonoBehaviour
 
         if (request.result == UnityWebRequest.Result.Success)
         {
-            Debug.Log("Register success: " + request.downloadHandler.text); 
+            Debug.Log("Register success: " + request.downloadHandler.text);
             ButtonsBehav.GoToCatMenu();
         }
         else

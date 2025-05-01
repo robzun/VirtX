@@ -76,6 +76,11 @@ public class APIHandler : MonoBehaviour
     // Post login
     public IEnumerator Login(string email, string password)
     {
+        if (errorMsg == null)
+        {
+            errorMsg = new GameObject();
+        }
+        
         var loginData = new LoginData(email, password);
         string json = JsonUtility.ToJson(loginData);
 
@@ -95,7 +100,7 @@ public class APIHandler : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Login failed: " + request.error);
+            //Debug.LogError("Login failed: " + request.error);
             errorMsg.SetActive(true);
             loginSuccess = false;
         }
@@ -104,6 +109,11 @@ public class APIHandler : MonoBehaviour
     // Post Register
     public IEnumerator Register(string email, string password, string name)
     {
+        if (errorMsg == null)
+        {
+            errorMsg = new GameObject();
+        }
+        
         var registerData = new RegisterData(email, password, name);
         string json = JsonUtility.ToJson(registerData);
 
@@ -123,7 +133,7 @@ public class APIHandler : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Register failed: " + request.error);
+            //Debug.LogError("Register failed: " + request.error);
             errorMsg.SetActive(true);
             registerSuccess = false;
         }

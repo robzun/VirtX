@@ -15,6 +15,8 @@ public class APIHandler : MonoBehaviour
     public InputField mailInput;
     public InputField passwordInput;
     public GameObject errorMsg;
+    public bool loginSuccess;
+    public bool registerSuccess;
 
     public void SendLoginData()
     {
@@ -72,7 +74,7 @@ public class APIHandler : MonoBehaviour
     }
 
     // Post login
-    IEnumerator Login(string email, string password)
+    public IEnumerator Login(string email, string password)
     {
         var loginData = new LoginData(email, password);
         string json = JsonUtility.ToJson(loginData);
@@ -89,22 +91,23 @@ public class APIHandler : MonoBehaviour
         {
             Debug.Log("Login success: " + request.downloadHandler.text);
             ButtonsBehav.GoToCatMenu();
+            loginSuccess = true;
         }
         else
         {
             Debug.LogError("Login failed: " + request.error);
             errorMsg.SetActive(true);
+            loginSuccess = false;
         }
     }
 
     // Post Register
-    IEnumerator Register(string email, string password, string name)
+    public IEnumerator Register(string email, string password, string name)
     {
         var registerData = new RegisterData(email, password, name);
         string json = JsonUtility.ToJson(registerData);
 
-        UnityWebRequest request =
-            new UnityWebRequest("http://virtx-api-production.up.railway.app/api/register", "POST");
+        UnityWebRequest request = new UnityWebRequest("http://localhost:8080/api/register", "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
@@ -116,11 +119,13 @@ public class APIHandler : MonoBehaviour
         {
             Debug.Log("Register success: " + request.downloadHandler.text);
             ButtonsBehav.GoToCatMenu();
+            registerSuccess = true;
         }
         else
         {
             Debug.LogError("Register failed: " + request.error);
             errorMsg.SetActive(true);
+            registerSuccess = false;
         }
     }
 }

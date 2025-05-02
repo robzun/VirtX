@@ -24,6 +24,8 @@ public class ButtonsBehav : MonoBehaviour
     public static void GoToCultMenu() => sceneLoader.LoadScene(7);
     // 8 - SJU01
     public static void GoToSJU01() => sceneLoader.LoadScene(8);
+    // 9 - Register
+    public static void GoToRegister() => sceneLoader.LoadScene(9);
     
     // Exit app
     public static void ExitProgram() => sceneLoader.Quit();

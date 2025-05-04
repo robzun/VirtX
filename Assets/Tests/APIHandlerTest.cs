@@ -15,9 +15,9 @@ public class APIHandlerTest
     [SetUp]
     public void Setup()
     {
-        testName = "Henry";
-        testEmail = "henry@gmail.com";
-        testPass = "contraseñaDeHenry";
+        testName = "Jorge";
+        testEmail = "jorge@gmail.com";
+        testPass = "contraseñaDeJorge";
         
         testObject = new GameObject("TestAPIHandler");
         handler = testObject.AddComponent<APIHandler>();
@@ -39,14 +39,14 @@ public class APIHandlerTest
     [UnityTest]
     public IEnumerator TestRegisterFail()
     {
-        yield return handler.StartCoroutine(handler.Register(testEmail, testPass, testName));
+        yield return handler.StartCoroutine(handler.Register("robzun03@gmail.com", testPass, testName));
         Assert.IsFalse(handler.registerSuccess);
     }
     
     [UnityTest]
     public IEnumerator TestLoginSuccess()
     {
-        yield return handler.StartCoroutine(handler.Login(testEmail, testPass));
+        yield return handler.StartCoroutine(handler.Login("robzun03@gmail.com", "123456789"));
         Assert.IsTrue(handler.loginSuccess);
     }
     

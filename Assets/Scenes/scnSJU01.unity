@@ -1179,6 +1179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff66414cc182d84f9a1eae3bb8f933d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  infoCard: {fileID: 0}
+  pinButton: {fileID: 0}
 --- !u!4 &1616193340
 Transform:
   m_ObjectHideFlags: 0
@@ -1278,8 +1280,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1616193339}
-        m_TargetAssemblyTypeName: InicioBotonBehav, Assembly-CSharp
-        m_MethodName: GoToMainMenu
+        m_TargetAssemblyTypeName: ButtonsBehav, Assembly-CSharp
+        m_MethodName: GoToCultMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

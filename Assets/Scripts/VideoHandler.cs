@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.Sprites;
@@ -30,8 +31,11 @@ public class VideoHandler : MonoBehaviour
     // Mostrar primer frame
     void OnVideoPrepared(VideoPlayer vp)
     {
-        vp.Play();
-        vp.Pause();
+        if (previewHud.IsUnityNull() == false)
+        {
+            vp.Play();
+            vp.Pause();
+        }
     }
     
     // Iniciar video

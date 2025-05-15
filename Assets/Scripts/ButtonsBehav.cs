@@ -5,6 +5,8 @@ using UnityEngine;
 public class ButtonsBehav : MonoBehaviour
 {
     public static ISceneLoader sceneLoader = new UnitySceneLoader();
+    public GameObject infoCard;
+    public GameObject pinButton;
 
     // 0 - Main menu 
     public static void GoToMainMenu() => sceneLoader.LoadScene(0);
@@ -26,6 +28,18 @@ public class ButtonsBehav : MonoBehaviour
     public static void GoToSJU01() => sceneLoader.LoadScene(8);
     // 9 - Register
     public static void GoToRegister() => sceneLoader.LoadScene(9);
+    
+    // Info card
+    public void ShowInfoCard()
+    {
+        infoCard.SetActive(true);
+        pinButton.SetActive(false);
+    }
+    public void CloseInfoCard()
+    {
+        infoCard.SetActive(false);
+        pinButton.SetActive(true);
+    }
     
     // Exit app
     public static void ExitProgram() => sceneLoader.Quit();

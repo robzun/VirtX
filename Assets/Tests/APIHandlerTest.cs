@@ -15,9 +15,9 @@ public class APIHandlerTest
     [SetUp]
     public void Setup()
     {
-        testName = "Jorge";
-        testEmail = "jorge@gmail.com";
-        testPass = "contraseñaDeJorge";
+        testName = "User";
+        testEmail = "user@example.com";
+        testPass = "p4$$w0rd";
         
         testObject = new GameObject("TestAPIHandler");
         handler = testObject.AddComponent<APIHandler>();
@@ -53,7 +53,7 @@ public class APIHandlerTest
     [UnityTest]
     public IEnumerator TestLoginFail()
     {
-        yield return handler.StartCoroutine(handler.Login("wrongmail@example.com", "wrongPassword"));
+        yield return handler.StartCoroutine(handler.Login("error@example.com", "wrongPassword"));
         Assert.IsFalse(handler.loginSuccess);
     }
 }

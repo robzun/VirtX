@@ -8,6 +8,7 @@ public class APIHandler : MonoBehaviour
 {
     // http://localhost:8080/api/login
     // http://virtx-api-production.up.railway.app/api/login
+    // https://virtx-api.onrender.com/api/login
     public string testName;
     public string testEmail;
     public string testPassword;
@@ -84,7 +85,7 @@ public class APIHandler : MonoBehaviour
         var loginData = new LoginData(email, password);
         string json = JsonUtility.ToJson(loginData);
 
-        UnityWebRequest request = new UnityWebRequest("http://localhost:8080/api/login", "POST");
+        UnityWebRequest request = new UnityWebRequest("https://virtx-api.onrender.com/api/login", "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
@@ -117,7 +118,7 @@ public class APIHandler : MonoBehaviour
         var registerData = new RegisterData(email, password, name);
         string json = JsonUtility.ToJson(registerData);
 
-        UnityWebRequest request = new UnityWebRequest("http://localhost:8080/api/register", "POST");
+        UnityWebRequest request = new UnityWebRequest("https://virtx-api.onrender.com/api/register", "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();

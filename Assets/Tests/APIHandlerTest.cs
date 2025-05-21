@@ -16,7 +16,7 @@ public class APIHandlerTest
     public void Setup()
     {
         testName = "User";
-        testEmail = "user@example.com";
+        testEmail = "user@domain.com";
         testPass = "p4$$w0rd";
         
         testObject = new GameObject("TestAPIHandler");

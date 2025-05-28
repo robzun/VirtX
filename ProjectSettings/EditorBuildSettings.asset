@@ -38,7 +38,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/scnED01.unity
     guid: 9f30fdb5aa60a5a45b2881fbecb1e0bc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scnRegister.unity
     guid: 8fc3118dcb700e14693a2e3ca8b9a014
   m_configObjects:
